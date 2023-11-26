@@ -1,8 +1,6 @@
 require('dotenv').config();
 const martaService = require('../marta-notification/services/martaService');
 
-console.log(process.env.MARTA_API_KEY)
-
 if (true) {
     main();
 }
