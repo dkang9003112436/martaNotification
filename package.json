@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/dkang9003112436/martaNotification.git"
   },
-  "author": "",
+  "author": "Kevin Kang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dkang9003112436/martaNotification/issues"
   },
-  "homepage": "https://github.com/dkang9003112436/martaNotification#readme"
+  "homepage": "https://github.com/dkang9003112436/martaNotification#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
 }
