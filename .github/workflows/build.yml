@@ -1,0 +1,19 @@
+on: push
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    container: node:16
+    steps:
+      - run: node --version
+      - run: npm --version
+      - uses: actions/checkout@v3
+      - name: create env file
+        run: |
+          touch .env
+          echo _MARTA_API_KEY=${{ secretes._MARTA_API_KEY }} >> .env
+          echo _LONG_LIVED_USER_ACCESS_TOKEN=${{ secretes._LONG_LIVED_USER_ACCESS_TOKEN }} >> .env
+          echo _LONG_LIVED_PAGE_ACCESS_TOKEN=${{ secretes._LONG_LIVED_PAGE_ACCESS_TOKEN }} >> .env
+          echo _PSID=${{ secretes._PSID }} >> .env
+          cat .env
+      - runs: npm install
+      - run: node index.js
