@@ -15,5 +15,5 @@ jobs:
           echo _LONG_LIVED_PAGE_ACCESS_TOKEN=${{ secretes._LONG_LIVED_PAGE_ACCESS_TOKEN }} >> .env
           echo _PSID=${{ secretes._PSID }} >> .env
           cat .env
-      - runs: npm install
+      - run: npm install
       - run: node index.js
