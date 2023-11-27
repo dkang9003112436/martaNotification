@@ -15,9 +15,10 @@ async function main() {
     };
 
     const response = await martaService.getJsonPlaceHolder(filters);
-
-    const data = response.at(0);
-    const message = `${data.LINE} train heading ${data.DIRECTION} approaching ${data.DESTINATION} station. Estimate Time Arrival is ${data.NEXT_ARR}, waiting time approximately ${data.WAITING_TIME}`
-
+    let message ="";
+    for (let i = 0; i < response.length; i++) {
+        data = response[i];
+        message += `The ${data.LINE} train is scheduled to arrive at ${data.STATION} at ${data.NEXT_ARR}, heading to ${data.DESTINATION}. Current wait time is ${data.WAITING_TIME}\n\n`
+    }
     const authentication = await facebookService.sendCustomerMessage(message);
 }
